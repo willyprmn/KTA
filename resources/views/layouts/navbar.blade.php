@@ -72,10 +72,12 @@
                   <div class="dropdown-menu">
                         <ul class="list-unstyled">
                               <li class="divider"></li>
+                              @if(auth()->user()->role == true)
                               <li>
                                     <a role="menuitem" tabindex="-1" href="{{ url('/profil') }}">
                                           <i class="fa fa-user"></i> Profil </a>
                               </li>
+                              @endif
                               <li>
                                     <form id="form_logout" action="{{ url('/logout') }}" method="POST"> @csrf <a role="menuitem" tabindex="-1" href="javascript:{}" onclick="document.getElementById('form_logout').submit();">
                                                 <i class="fa fa-power-off"></i> Logout </a>

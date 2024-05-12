@@ -56,7 +56,7 @@
                                     </div>
                               </div>
                               <span class="mt-lg mb-lg line-thru text-center text-uppercase">
-                                    <span>or</span>
+                                    <span>Atau</span>
                               </span>
                               <p class="text-center">Tidak memiliki akun? Silahkan <a href="/register" style="text-decoration: none;">Sign Up!</a>
                               </p>

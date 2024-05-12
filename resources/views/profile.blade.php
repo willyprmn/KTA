@@ -68,16 +68,16 @@
                               <div class="form-group mb-lg @error('ktp') has-error @enderror">
                                     <label class="col-md-3 control-label" for="ktp">KTP</label>
                                     <div class="col-md-8">
-                                          <input name="ktp" id="ktp" type="number" class="form-control" value="{{ old('ktp', $profil->ktp) }}">
+                                          <input name="ktp" id="ktp" type="text" class="form-control number" value="{{ old('ktp', $profil->ktp) }}" pattern="[0-9]{16}" maxlength="16">
                                           @error('ktp') 
                                           <label id="ktp-error" class="error" for="ktp">{{ $message }}</label> 
                                           @enderror
                                     </div>
                               </div>
                               <div class="form-group mb-lg @error('npwp') has-error @enderror">
-                                    <label class="col-md-3 control-label" for="npwp">npwp</label>
+                                    <label class="col-md-3 control-label" for="npwp">NPWP</label>
                                     <div class="col-md-8">
-                                          <input name="npwp" id="npwp" type="number" class="form-control" value="{{ old('npwp', $profil->npwp) }}">
+                                          <input name="npwp" id="npwp" type="text" class="form-control number" value="{{ old('npwp', $profil->npwp) }}" pattern="[0-9]{15}" maxlength="15">
                                           @error('npwp') 
                                           <label id="npwp-error" class="error" for="npwp">{{ $message }}</label> 
                                           @enderror
@@ -96,7 +96,6 @@
                                           @enderror
                                     </div>
                               </div>
-
                               <div class="form-group mb-lg @error('status') has-error @enderror">
                                     <label class="col-md-3 control-label" for="status">Status</label>
                                     <div class="col-md-8">
@@ -118,14 +117,19 @@
                               <div class="form-group mb-lg @error('no_hp') has-error @enderror">
                                     <label class="col-md-3 control-label" for="no_hp">Nomor HP</label>
                                     <div class="col-md-8">
-                                          <input name="no_hp" id="no_hp" type="number" class="form-control" value="{{ old('no_hp', $profil->no_hp) }}" /> @error('no_hp') <label id="no_hp-error" class="error" for="no_hp">{{ $message }}</label> @enderror
+                                          <input name="no_hp" id="no_hp" type="text" class="form-control" value="{{ old('no_hp', $profil->no_hp) }}" pattern="[0-9]{13}" maxlength="13"/> 
+                                          @error('no_hp') 
+                                          <label id="no_hp-error" class="error" for="no_hp">{{ $message }}</label> 
+                                          @enderror
                                     </div>
                               </div>
                               <div class="form-group mb-lg @error('no_cc') has-error @enderror">
                                     <label class="col-md-3 control-label" for="no_cc">Nomor Kartu Kredit</label>
                                     <div class="col-md-8">
-                                          <input name="no_cc" id="no_cc" type="number" class="form-control" value="{{ old('no_cc', $profil->no_cc) }}" /> @error('no_cc') <label id="no_cc-error" class="error" for="no_cc">{{ $message }}</label> @enderror
-                              
+                                          <input name="no_cc" id="no_cc" type="text" class="form-control number" value="{{ old('no_cc', $profil->no_cc) }}" pattern="[0-9]{16}" maxlength="16"/> 
+                                          @error('no_cc') 
+                                          <label id="no_cc-error" class="error" for="no_cc">{{ $message }}</label> 
+                                          @enderror
                                     </div>
                               </div>
                               <div class="form-group mb-lg @error('limit_cc') has-error @enderror">
@@ -157,6 +161,13 @@
       </div>
 </div>
 <script>
+      $('.number').keyup(function(e){
+            if (/\D/g.test(this.value))
+            {
+                  this.value = this.value.replace(/\D/g, '')
+            }
+      })
+
 	$('#limit_cc').on('keyup', function() {
 		var val = $('#limit_cc').val()
 		val = val.replace(/[^0-9\.]/g,'')
