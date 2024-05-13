@@ -14,40 +14,9 @@ Route::post('/logout', [AuthController::class, 'logout']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'customer']);
 
-// Route::group(['middleware' => 'auth'], function () {
-      Route::get('/dashboard', [DashboardController::class, 'index']);
-      Route::get('/profil', [AuthController::class, 'profil']);
-      Route::post('/profil', [AuthController::class, 'updateProfil']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-      // admin
-      // Route::resource('bank', BankController::class);
-      // Route::get('/kriteria', [CriteriaController::class, 'index']);
-      // Route::get('/proses/{id}', [CriteriaController::class, 'proses']);
-      // Route::post('/terima', [CriteriaController::class, 'terima']);
-      // Route::post('/tolak', [CriteriaController::class, 'tolak']);
-      // Route::post('/pilih', [CriteriaController::class, 'pilih']);
-      // Route::get('/cetak/{$id}', [CriteriaController::class, 'generatePdf']);
-
-      // customer
-      Route::resource('pengajuan', SubmissionController::class);
-// });
-
-// Route::group(function () {
-//       // admin
-//       Route::resource('bank', BankController::class);
-//       Route::get('/kriteria', [CriteriaController::class, 'index']);
-//       Route::get('/proses/{id}', [CriteriaController::class, 'proses']);
-//       Route::post('/terima', [CriteriaController::class, 'terima']);
-//       Route::post('/tolak', [CriteriaController::class, 'tolak']);
-//       Route::post('/pilih', [CriteriaController::class, 'pilih']);
-// })->middleware([AdminRole::class]);
-
-// Route::group(['middleware' => 'customer'], function () {
-//       // customer
-//       Route::resource('pengajuan', SubmissionController::class);
-// });
-
-// Route::middleware([AdminRole::class])->group(function () {
+Route::group(['middleware' => 'admin'], function () {
       Route::resource('bank', BankController::class);
       Route::get('/kriteria', [CriteriaController::class, 'index']);
       Route::get('/proses/{id}', [CriteriaController::class, 'proses']);
@@ -55,5 +24,10 @@ Route::post('/register', [AuthController::class, 'customer']);
       Route::post('/tolak', [CriteriaController::class, 'tolak']);
       Route::post('/pilih', [CriteriaController::class, 'pilih']);
       Route::get('/cetak/{id}', [CriteriaController::class, 'generatePdf']);
+});
 
-// });
+Route::group(['middleware' => 'customer'], function () {
+      Route::resource('pengajuan', SubmissionController::class);
+      Route::get('/profil', [AuthController::class, 'profil']);
+      Route::post('/profil', [AuthController::class, 'updateProfil']);
+});
