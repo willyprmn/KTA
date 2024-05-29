@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('submission_id');
             $table->unsignedBigInteger('bank_id');
             $table->timestamps();
-            $table->softDeletes();
 
             $table->foreign('submission_id')->references('id')->on('submissions');
             $table->foreign('bank_id')->references('id')->on('banks');

@@ -9,7 +9,7 @@
       </div>
       <!-- start: search & user box -->
       <div class="header-right">
-            <ul class="notifications">
+            <!-- <ul class="notifications">
                   <li>
                         <a href="#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
                               <i class="fa fa-bell"></i>
@@ -56,7 +56,7 @@
                               </div>
                         </div>
                   </li>
-            </ul>
+            </ul> -->
             <span class="separator"></span>
             <div id="userbox" class="userbox">
                   <a href="#" data-toggle="dropdown">
@@ -80,7 +80,7 @@
                               @endif
                               <li>
                                     <form id="form_logout" action="{{ url('/logout') }}" method="POST"> @csrf <a role="menuitem" tabindex="-1" href="javascript:{}" onclick="document.getElementById('form_logout').submit();">
-                                                <i class="fa fa-power-off"></i> Logout </a>
+                                                <i class="fa fa-power-off"></i> Sign Out </a>
                                     </form>
                               </li>
                         </ul>

@@ -33,11 +33,11 @@
                                           <div class="col-sm-12 mb-lg  @error('password') has-error @enderror">
                                                 <label>Password</label>
                                                 <input name="password" id="password" type="password" class="form-control" required/> @error('password') <label id="password-error" class="error" for="password">{{ $message }}</label> @enderror
+                                                <div class="checkbox-custom checkbox-default">
+                                                      <input type="checkbox" onclick="showPassword()"/>
+                                                      <label>Lihat Password</label>
+                                                </div>
                                           </div>
-                                          <!-- <div class="col-sm-6 mb-lg">
-                                                <label>Konfirmasi Password</label>
-                                                <input name="password_confirm" id="password_confirm" type="password" class="form-control" />
-                                          </div> -->
                                     </div>
                               </div>
                               <hr class="dotted tall">
@@ -79,7 +79,7 @@
                               </div>
                               <div class="form-group mb-lg @error('no_hp') has-error @enderror">
                                     <label>Nomor HP</label>
-                                    <input name="no_hp" id="no_hp" type="text" class="form-control number" value="{{ old('no_hp') }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nomor HP dimulai dari 0" pattern="[0-9]{13}" maxlength="13" required/> 
+                                    <input name="no_hp" id="no_hp" type="text" class="form-control number" value="{{ old('no_hp') }}" data-toggle="tooltip" data-placement="top" title="" data-original-title="Nomor HP dimulai dari 0" maxlength="13" required/> 
                                     @error('no_hp') 
                                     <label id="no_hp-error" class="error" for="no_hp">{{ $message }}</label> 
                                     @enderror
@@ -132,6 +132,15 @@
       $(document).ready(function(){
             $('#sign-in').prop('disabled', true)
       })
+
+      function showPassword() {
+            var x = document.getElementById("password")
+            if (x.type === "password") {
+                  x.type = "text"
+            } else {
+                  x.type = "password"
+            }
+      }
 
       $('.number').keyup(function(e){
             if (/\D/g.test(this.value))

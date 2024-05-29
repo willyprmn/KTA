@@ -9,15 +9,15 @@
             <div class="nano-content">
                   <nav id="menu" class="nav-main" role="navigation">
                         <ul class="nav nav-main">
-                              <li>
+                              <li class="{{ Request::is('dashboard') ? 'nav-active' : '' }}">
                                     <a href="{{ url('/dashboard') }}" style="{{ Request::is('dashboard') ? 'color: #0088cc;' : '' }}">
                                           <i class="fa fa-home" aria-hidden="true"></i>
                                           <span>Dashboard</span>
                                     </a>
                               </li>
                               @if(auth()->user()->role == false)
-                              <li class="nav-parent {{ Request::is('bank*') ? 'nav-expanded' : '' }}">
-                                    <a class="text-muted" style="{{ Request::is('bank*') ? 'color: #0088cc;' : '' }}">
+                              <li class="nav-parent {{ Request::is('bank*') ? 'nav-expanded nav-active' : '' }}">
+                                    <a class="text-muted" style="{{ Request::is('bank*') ? 'color: #0088cc !important;' : '' }}">
                                           <i class="fa fa-database" aria-hidden="true"></i>
                                           <span>Master Data</span>
                                     </a>
@@ -27,14 +27,14 @@
                                           </li>
                                     </ul>
                               </li>
-                              <li>
+                              <li class="{{ Request::is('kriteria*') ? 'nav-active' : '' }}">
                                     <a href="{{ url('/kriteria') }}" style="{{ Request::is('kriteria*') ? 'color: #0088cc;' : '' }}">
                                           <i class="fa fa-list-alt" aria-hidden="true"></i>
                                           <span>Kriteria</span>
                                     </a>
                               </li>
                               @else
-                              <li>
+                              <li class="{{ Request::is('pengajuan*') ? 'nav-active' : '' }}">
                                     <a href="{{ url('/pengajuan') }}" style="{{ Request::is('pengajuan*') ? 'color: #0088cc;' : '' }}">
                                           <i class="fa fa-copy" aria-hidden="true"></i>
                                           <span>Pengajuan</span>

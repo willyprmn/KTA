@@ -32,7 +32,7 @@
                               <div class="form-group mb-lg @error('password') has-error @enderror">
                                     <div class="clearfix">
                                           <label class="pull-left">Password</label>
-                                          <a href="#" class="pull-right" style="text-decoration: none;">Lupa Password?</a>
+                                          <a href="#" class="pull-right" style="text-decoration: none;">Lihat Password</a>
                                     </div>
                                     <div class="input-group input-group-icon">
                                           <input name="password" type="password" class="form-control input-lg" required />
@@ -66,4 +66,14 @@
             <p class="text-center text-muted mt-md mb-md">&copy; Copyright 2024. All Rights Reserved.</p>
       </div>
 </section>
+<script>
+      function showPassword() {
+            var x = document.getElementById("password")
+            if (x.type === "password") {
+                  x.type = "text"
+            } else {
+                  x.type = "password"
+            }
+      }
+</script>
 @endsection

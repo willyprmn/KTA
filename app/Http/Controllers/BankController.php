@@ -15,7 +15,7 @@ class BankController extends Controller
     {
         return view('master.bank', [
             'title' => 'Master Data | Bank',
-            'bank' => Bank::orderBy('id', 'desc')->get(),
+            'bank' => Bank::where('deleted_at', NULL)->orderBy('id', 'desc')->get(),
             'list' => ListBank::all()
         ]);
     }
@@ -33,19 +33,9 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'nama' => ['required', 'unique:banks', 'max:255'],
-            'tenor_bank' => ['required']
-        ], [
-            'nama.required' => 'Nama Bank wajib di isi',
-            'nama.unique' => 'Nama Bank sudah ada',
-            'nama.max' => 'Nama Bank terlalu panjang',
-            'tenor_bank.required' => 'Tenor Bank wajib di pilih'
-        ]);
-
         $data = Bank::create([
-            'nama' => $validatedData['nama'],
-            'tenor_bank' => $validatedData['tenor_bank']
+            'nama' => $request->nama,
+            'tenor_bank' => $request->tenor_bank
         ]);
 
         return response()->json([
@@ -68,7 +58,10 @@ class BankController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Bank::where('id', $id)->get();
+        $data = Bank::where([
+            ['id', $id],
+            ['deleted_at', NULL]
+        ])->get();
         return response()->json([
             'success' => true,
             'message' => 'Detail Data',
@@ -97,13 +90,12 @@ class BankController extends Controller
      */
     public function destroy(string $id)
     {
-        $validatedData['n_status'] = 0;
-        $data = JenisArtikel::where('id_jenis_artikel', $id)->update($validatedData);
+        $artikel = Bank::find($id);
+        $artikel->delete();
 
         return response()->json([
             'success' => true,
-            'message' => 'Data Berhasil Dihapus!',
-            'data'    => $data 
+            'message' => 'Data Berhasil Dihapus!'
         ]);
     }
 }

@@ -30,6 +30,7 @@
 		<link rel="stylesheet" href="{{ asset('porto-admin') }}/assets/vendor/morris.js/morris.css" />
 		<link rel="stylesheet" href="{{ asset('porto-admin') }}/assets/vendor/select2/css/select2.css" />
 		<link rel="stylesheet" href="{{ asset('porto-admin') }}/assets/vendor/select2-bootstrap-theme/select2-bootstrap.min.css" />
+		<link rel="stylesheet" href="{{ asset('porto-admin') }}/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="{{ asset('porto-admin') }}/assets/stylesheets/theme.css" />
@@ -172,6 +173,9 @@
 		<script src="{{ asset('porto-admin') }}/assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
 		<script src="{{ asset('porto-admin') }}/assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
 		<script src="{{ asset('porto-admin') }}/assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+		<script src="{{ asset('porto-admin') }}/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+		<script src="{{ asset('porto-admin') }}/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+		<script src="{{ asset('porto-admin') }}/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="{{ asset('porto-admin') }}/assets/javascripts/theme.js"></script>
@@ -184,11 +188,12 @@
 
 		<!-- Examples -->
 		<script src="{{ asset('porto-admin') }}/assets/javascripts/dashboard/examples.dashboard.js"></script>
-		<!-- <script src="{{ asset('porto-admin') }}/assets/javascripts/tables/examples.datatables.editable.js"></script>
+		<script src="{{ asset('porto-admin') }}/assets/javascripts/ui-elements/examples.modals.js"></script>
+		<script src="{{ asset('porto-admin') }}/assets/javascripts/dashboard/examples.dashboard.js"></script>
+		<script src="{{ asset('porto-admin') }}/assets/javascripts/ui-elements/examples.modals.js"></script>
 		<script src="{{ asset('porto-admin') }}/assets/javascripts/tables/examples.datatables.default.js"></script>
 		<script src="{{ asset('porto-admin') }}/assets/javascripts/tables/examples.datatables.row.with.details.js"></script>
-		<script src="{{ asset('porto-admin') }}/assets/javascripts/tables/examples.datatables.tabletools.js"></script> -->
-		<script src="{{ asset('porto-admin') }}/assets/javascripts/ui-elements/examples.modals.js"></script>
+		<script src="{{ asset('porto-admin') }}/assets/javascripts/tables/examples.datatables.tabletools.js"></script>
 
 	</body>
 </html>

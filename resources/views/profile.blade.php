@@ -117,7 +117,7 @@
                               <div class="form-group mb-lg @error('no_hp') has-error @enderror">
                                     <label class="col-md-3 control-label" for="no_hp">Nomor HP</label>
                                     <div class="col-md-8">
-                                          <input name="no_hp" id="no_hp" type="text" class="form-control" value="{{ old('no_hp', $profil->no_hp) }}" pattern="[0-9]{13}" maxlength="13"/> 
+                                          <input name="no_hp" id="no_hp" type="text" class="form-control" value="{{ old('no_hp', $profil->no_hp) }}" maxlength="13"/> 
                                           @error('no_hp') 
                                           <label id="no_hp-error" class="error" for="no_hp">{{ $message }}</label> 
                                           @enderror

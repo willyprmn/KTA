@@ -34,10 +34,10 @@
                               <td>{{ $b->nama }}</td>
                               <td>{{ $b->tenor_bank }} Bulan</td>
                               <td>
-                                    <a href="#modalForm2" class="modal-with-form" onclick="EditBank('{{ $b->id }}')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit" style="text-decoration: none;">
+                                    <a href="#modalForm2" class="modal-with-form" onclick="EditBank('{{ $b->id }}')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit">
                                           <i class="fa fa-pencil"></i>
                                     </a>
-                                    <a class="mb-xs mt-xs mr-xs modal-basic" href="#modalCenter" onclick="DestroyBank('{{ $b->id }}')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus">
+                                    <a class="mb-xs mt-xs mr-xs modal-basic" href="#modalCenter" onclick="DestroyBank('{{ $b->id }}')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Hapus" style="color: red;">
                                           <i class="fa fa-trash-o"></i>
                                     </a>
                               </td>
@@ -59,7 +59,7 @@
                               <div class="form-group mt-lg">
                                     <label class="col-sm-3 control-label">Bank</label>
                                     <div class="col-sm-9">
-                                          <select name="nama" id="nama" class="form-control" data-plugin-selectTwo required>
+                                          <select name="nama" id="nama" class="form-control" width="100" data-plugin-selectTwo required>
                                                 <option selected disabled></option>
                                                 @foreach ($list as $l)
                                                 <option value="{{ $l->name }}">{{ $l->name }}</option>
@@ -103,7 +103,7 @@
                                     <label class="col-sm-3 control-label">Bank</label>
                                     <div class="col-sm-9">
                                           <input type="hidden" name="id" id="id" class="form-control">
-                                          <select name="nama" id="nama" class="form-control" data-plugin-selectTwo required>
+                                          <select name="nama" id="nama" class="form-control" required>
                                                 <option selected disabled></option>
                                                 @foreach ($list as $l)
                                                 <option value="{{ $l->name }}">{{ $l->name }}</option>
@@ -192,7 +192,7 @@
       function DestroyBank(e){
             let token   = $("meta[name='csrf-token']").attr("content")
 
-            $("#bank").click(function(){
+            $("#delete-bank").click(function(){
                   $.ajax({
                         url: '/bank/' + e,
                         type: 'DELETE',
