@@ -202,10 +202,13 @@ class AuthController extends Controller
             'name' => $validatedData['name'],     
             'email' => $validatedData['email'],
             'username' => $validatedData['username'],
-            'password' => Hash::make($validatedData['password']),
             'role' => 1
         ];
         User::where('id', auth()->user()->id)->update($dataUser);
+        if (!empty($validatedData['password'])){
+            $password['password'] = Hash::make($validatedData['password']);
+            $data = User::where('id', auth()->user()->id)->update($password);
+        }
 
         $user_id = User::latest('id')->first();
         $limit = str_replace(",", "", $validatedData['limit_cc']);
