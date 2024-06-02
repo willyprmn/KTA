@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('ktp', 16)->unique();
-            $table->string('jenis_kelamin');
-            $table->string('status');
+            $table->string('jenis_kelamin', 20);
+            $table->string('status', 20);
             $table->text('alamat');
             $table->string('no_hp', 13)->unique();
-            $table->string('rekening');
+            $table->string('rekening', 50);
             $table->string('no_cc', 16);
             $table->double('limit_cc');
-            $table->string('npwp', 15);
+            $table->string('npwp', 15)->unique();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

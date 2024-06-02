@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('submissions', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal_pengajuan');
-            $table->string('jenis_pekerjaan');
+            $table->string('jenis_pekerjaan', 50);
             $table->double('penghasilan');
             $table->double('besar_pinjaman');
             $table->integer('tenor')->unsigned();
-            $table->string('status');
+            $table->string('status', 20);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
