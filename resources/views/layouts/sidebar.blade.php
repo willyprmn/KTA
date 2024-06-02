@@ -27,8 +27,8 @@
                                           </li>
                                     </ul>
                               </li>
-                              <li class="{{ Request::is('kriteria*') ? 'nav-active' : '' }}">
-                                    <a href="{{ url('/kriteria') }}" style="{{ Request::is('kriteria*') ? 'color: #0088cc;' : '' }}">
+                              <li class="{{ Request::is('kriteria*') || Request::is('proses*') ? 'nav-active' : '' }}">
+                                    <a href="{{ url('/kriteria') }}" style="{{ Request::is('kriteria*') || Request::is('proses*') ? 'color: #0088cc;' : '' }}">
                                           <i class="fa fa-list-alt" aria-hidden="true"></i>
                                           <span>Kriteria</span>
                                     </a>

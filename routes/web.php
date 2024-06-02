@@ -22,12 +22,12 @@ Route::group(['middleware' => 'admin'], function () {
       Route::get('/proses/{id}', [CriteriaController::class, 'proses']);
       Route::post('/terima', [CriteriaController::class, 'terima']);
       Route::post('/tolak', [CriteriaController::class, 'tolak']);
-      Route::post('/pilih', [CriteriaController::class, 'pilih']);
       Route::get('/cetak/{id}', [CriteriaController::class, 'generatePdf']);
 });
 
 Route::group(['middleware' => 'customer'], function () {
       Route::resource('pengajuan', SubmissionController::class);
+      Route::post('/pilih', [CriteriaController::class, 'pilih']);
       Route::get('/profil', [AuthController::class, 'profil']);
       Route::post('/profil', [AuthController::class, 'updateProfil']);
 });
