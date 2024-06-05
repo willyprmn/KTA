@@ -140,6 +140,11 @@ class AuthController extends Controller
 
     public function profil()
     {
+        // $profile = User::join('customers', 'customers.user_id', '=', 'users.id')
+        // ->select('users.id', 'customers.id as customers_id', 'users.name', 'users.email', 'users.username', 'customers.ktp', 'customers.jenis_kelamin', 'customers.status', 'customers.alamat', 'customers.no_hp', 'customers.npwp', 'customers.no_cc', 'customers.limit_cc')
+        // ->where('users.id', auth()->user()->id)
+        // ->first();
+        // dd($profile);
         return view('profile', [
             'title' => 'Profil',
             'profil' => User::join('customers', 'customers.user_id', '=', 'users.id')
@@ -156,7 +161,8 @@ class AuthController extends Controller
             'name' => ['required'],
             'email' => ['required', Rule::unique('users')->ignore($auth)],
             'username' => ['required', Rule::unique('users')->ignore($auth)],
-            'password' => ['nullable', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/', 'min:8'],
+            // 'password' => ['nullable', 'regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/', 'min:8'],
+            'password' => ['nullable', 'min:8'],
             'ktp' => ['required', 'regex:/[0-9]{9}/', 'unique:customers,user_id,' . auth()->user()->id, 'min:16', 'max:16'],
             'npwp' => ['required', 'regex:/[0-9]{9}/', 'unique:customers,user_id,' . auth()->user()->id, 'min:15', 'max:15'],
             'jenis_kelamin' => ['required'],
@@ -172,7 +178,7 @@ class AuthController extends Controller
             'email.unique' => 'Email telah terdaftar',
             'username.required' => 'Username wajib di isi',
             'username.unique' => 'Username telah terdaftar',
-            'password.regex' => 'Password harus terdiri dari angka, huruf besar dan kecil serta karakter simbol',
+            // 'password.regex' => 'Password harus terdiri dari angka, huruf besar dan kecil serta karakter simbol',
             'password.min' => 'Password minimum 8 karakter',
             'ktp.required' => 'Nomor KTP wajib di isi',
             'ktp.regex' => 'Nomor KTP wajib di isi dengan angka',
@@ -223,8 +229,7 @@ class AuthController extends Controller
             // 'rekening' => $validatedData['rekening'],
             'no_cc' => $validatedData['no_cc'],
             'limit_cc' => (float)$limit,
-            'npwp' => $validatedData['npwp'],
-            'user_id' => $user_id['id']
+            'npwp' => $validatedData['npwp']
         ];
         Customer::where('user_id', auth()->user()->id)->update($dataCustomer);
 

@@ -35,7 +35,7 @@
                                                 <input name="password" id="password" type="password" class="form-control" required/> @error('password') <label id="password-error" class="error" for="password">{{ $message }}</label> @enderror
                                                 <div class="checkbox-custom checkbox-default">
                                                       <input type="checkbox" onclick="showPassword()"/>
-                                                      <label>Lihat Password</label>
+                                                      <label id="showCheck">Lihat Password</label>
                                                 </div>
                                           </div>
                                     </div>
@@ -137,8 +137,10 @@
             var x = document.getElementById("password")
             if (x.type === "password") {
                   x.type = "text"
+                  document.getElementById("showCheck").innerText = 'Tutup Password'
             } else {
                   x.type = "password"
+                  document.getElementById("showCheck").innerText = 'Lihat Password'
             }
       }
 

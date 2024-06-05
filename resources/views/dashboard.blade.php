@@ -7,7 +7,7 @@
                   <div class="col-md-12 col-lg-6 col-xl-6">
                         <section class="panel panel-featured-left panel-featured-primary">
                               <div class="panel-body">
-                                    <div class="widget-summary">
+                                    <!-- <div class="widget-summary">
                                           <div class="widget-summary-col widget-summary-col-icon">
                                                 <div class="summary-icon bg-primary">
                                                       <i class="fa fa-life-ring"></i>
@@ -25,11 +25,12 @@
                                                       <a class="text-muted text-uppercase">(view all)</a>
                                                 </div>
                                           </div>
-                                    </div>
+                                    </div> -->
+                                    <p>Selamat datang, {{ auth()->user()->name }}</p>
                               </div>
                         </section>
                   </div>
-                  <div class="col-md-12 col-lg-6 col-xl-6">
+                  <!-- <div class="col-md-12 col-lg-6 col-xl-6">
                         <section class="panel panel-featured-left panel-featured-secondary">
                               <div class="panel-body">
                                     <div class="widget-summary">
@@ -52,9 +53,9 @@
                                     </div>
                               </div>
                         </section>
-                  </div>
+                  </div> -->
             </div>
-            <div class="row">
+            <!-- <div class="row">
                   <div class="col-md-12 col-lg-6 col-xl-6">
                         <section class="panel panel-featured-left panel-featured-tertiary">
                               <div class="panel-body">
@@ -103,7 +104,7 @@
                               </div>
                         </section>
                   </div>
-            </div>
+            </div> -->
       </div>
 </div>
 @endsection

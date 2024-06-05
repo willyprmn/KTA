@@ -96,6 +96,7 @@
                                                       <option value="24" {{ old('tenor') == '24' ? 'selected' : '' }}>24 Bulan</option>
                                                       <option value="36" {{ old('tenor') == '36' ? 'selected' : '' }}>36 Bulan</option>
                                                       <option value="48" {{ old('tenor') == '48' ? 'selected' : '' }}>48 Bulan</option>
+                                                      <option value="60" {{ old('tenor') == '60' ? 'selected' : '' }}>60 Bulan</option>
                                                 </select>
                                                 @error('tenor')
                                                 <label id="tenor-error" class="error" for="tenor">{{ $message }}</label>

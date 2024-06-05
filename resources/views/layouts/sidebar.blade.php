@@ -9,8 +9,8 @@
             <div class="nano-content">
                   <nav id="menu" class="nav-main" role="navigation">
                         <ul class="nav nav-main">
-                              <li class="{{ Request::is('dashboard') ? 'nav-active' : '' }}">
-                                    <a href="{{ url('/dashboard') }}" style="{{ Request::is('dashboard') ? 'color: #0088cc;' : '' }}">
+                              <li class="{{ Request::is('dashboard') || Request::is('profil') ? 'nav-active' : '' }}">
+                                    <a href="{{ url('/dashboard') }}" style="{{ Request::is('dashboard') || Request::is('profil') ? 'color: #0088cc;' : '' }}">
                                           <i class="fa fa-home" aria-hidden="true"></i>
                                           <span>Dashboard</span>
                                     </a>

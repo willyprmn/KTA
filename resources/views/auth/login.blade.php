@@ -21,7 +21,7 @@
                         </div> @endif <form action="{{ url('/login') }}" method="post"> @csrf <div class="form-group mb-lg @error('username') has-error @enderror">
                                     <label>Username</label>
                                     <div class="input-group input-group-icon">
-                                          <input name="username" type="text" class="form-control input-lg" autofocus required />
+                                          <input name="username" id="username" type="text" class="form-control input-lg" autofocus required />
                                           <span class="input-group-addon">
                                                 <span class="icon icon-lg">
                                                       <i class="fa fa-user"></i>
@@ -32,10 +32,10 @@
                               <div class="form-group mb-lg @error('password') has-error @enderror">
                                     <div class="clearfix">
                                           <label class="pull-left">Password</label>
-                                          <a href="#" class="pull-right" style="text-decoration: none;">Lihat Password</a>
+                                          <a href="#" onclick="showPassword()" class="pull-right" id="show" style="text-decoration: none;">Lihat Password</a>
                                     </div>
                                     <div class="input-group input-group-icon">
-                                          <input name="password" type="password" class="form-control input-lg" required />
+                                          <input name="password" id="password" type="password" class="form-control input-lg" required />
                                           <span class="input-group-addon">
                                                 <span class="icon icon-lg">
                                                       <i class="fa fa-lock"></i>
@@ -71,8 +71,10 @@
             var x = document.getElementById("password")
             if (x.type === "password") {
                   x.type = "text"
+                  document.getElementById("show").innerText = 'Tutup Password'
             } else {
                   x.type = "password"
+                  document.getElementById("show").innerText = 'Lihat Password'
             }
       }
 </script>

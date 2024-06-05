@@ -57,6 +57,10 @@
                                           @error('password') 
                                           <label id="password-error" class="error" for="password">{{ $message }}</label> 
                                           @enderror
+                                          <div class="checkbox-custom checkbox-default">
+                                                <input type="checkbox" onclick="showPassword()"/>
+                                                <label id="showCheck">Lihat Password</label>
+                                          </div>
                                     </div>
                               </div>
                         </fieldset>
@@ -161,6 +165,17 @@
       </div>
 </div>
 <script>
+      function showPassword() {
+            var x = document.getElementById("password")
+            if (x.type === "password") {
+                  x.type = "text"
+                  document.getElementById("showCheck").innerText = 'Tutup Password'
+            } else {
+                  x.type = "password"
+                  document.getElementById("showCheck").innerText = 'Lihat Password'
+            }
+      }
+
       $('.number').keyup(function(e){
             if (/\D/g.test(this.value))
             {
