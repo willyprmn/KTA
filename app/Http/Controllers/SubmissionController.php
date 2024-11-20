@@ -48,7 +48,7 @@ class SubmissionController extends Controller
 
         $penghasilan = str_replace(",", "", $validatedData['penghasilan']);
         $dataPengajuan = [
-            'tanggal_pengajuan' => date('Y-d-m'),     
+            'tanggal_pengajuan' => date('Y-m-d'),     
             'jenis_pekerjaan' => $validatedData['jenis_pekerjaan'],
             'penghasilan' => (float)$penghasilan,
             'besar_pinjaman' => (float)$validatedData['besar_pinjaman'],
@@ -56,6 +56,7 @@ class SubmissionController extends Controller
             'status' => 'Diproses Admin',
             'user_id' => auth()->user()->id
         ];
+        // dd($dataPengajuan);
         Submission::create($dataPengajuan);
 
         return redirect('/pengajuan')->with('success', 'Pengajuan berhasil dan sedang diproses oleh Admin!');

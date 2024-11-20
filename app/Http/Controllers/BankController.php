@@ -90,8 +90,8 @@ class BankController extends Controller
      */
     public function destroy(string $id)
     {
-        $artikel = Bank::find($id);
-        $artikel->delete();
+        $bank = Bank::find($id);
+        $bank->delete();
 
         return response()->json([
             'success' => true,

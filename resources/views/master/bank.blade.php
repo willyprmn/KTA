@@ -103,7 +103,7 @@
                                     <label class="col-sm-3 control-label">Bank</label>
                                     <div class="col-sm-9">
                                           <input type="hidden" name="id" id="id" class="form-control">
-                                          <select name="nama" id="nama" class="form-control" required>
+                                          <select name="nama" id="nama" class="form-control" data-plugin-selectTwo required>
                                                 <option selected disabled></option>
                                                 @foreach ($list as $l)
                                                 <option value="{{ $l->name }}">{{ $l->name }}</option>
@@ -244,8 +244,7 @@
                   data: {
                         "_token": token,
                         "nama": nama,
-                        "tenor_bank": tenor_bank,
-                        "bunga": bunga
+                        "tenor_bank": tenor_bank
                   },
                   success:function(response){
                         location.reload()

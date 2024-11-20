@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
 
         User::insert([
             'name' => 'Administrator',
-            'email' => 'willy.permana@bkkbn.go.id',
-            'password' => Hash::make('p@S5w0rD'),
+            'email' => 'admin@kta.co.id',
+            'password' => Hash::make('passwd'),
             'username' => 'admin',
             'role' => false,
             'created_at' => now(),
